@@ -302,7 +302,14 @@ class Juego:
         self.textos_flotantes.draw(superficie)
 
 class OsuLegacyGame(GameBase):
-    def __init__(self, metadata):
+    def __init__(self):
+        metadata = GameMetadata(
+            title="Osu! Legacy",
+            description="Rhythm Arcade Edition",
+            authors=["Rovel Pérez", "Eduardo Díaz", "Cesar rodríguez", "Hemberth García"],
+            group_number=7
+            )
+
         super().__init__(metadata)
         self.estado = "MENU" 
         self.menu = None
@@ -365,12 +372,5 @@ if __name__ == "__main__":
     if not pygame.get_init():
         pygame.init()
         
-    metadata = GameMetadata(
-        title="Osu! Legacy",
-        description="Rhythm Arcade Edition",
-        authors=["Rovel Pérez", "Eduardo Díaz", "Cesar rodríguez", "Hemberth García"],
-        group_number=7
-    )
-
-    game = OsuLegacyGame(metadata)
+    game = OsuLegacyGame()
     game.run_preview()
